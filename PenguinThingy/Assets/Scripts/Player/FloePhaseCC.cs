@@ -6,7 +6,7 @@ public class FloePhaseCC : MonoBehaviour
 {
     public static bool canAct = true;
 
-    [SerializeField] private GameObject gunPivot, penguin, bulletPrefab, lowerBody;
+    [SerializeField] private GameObject gunPivot, penguin, bulletPrefab, lowerBody, head;
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private AudioClip[] bulletSounds;
     [SerializeField] private AudioClip jumpSound;
@@ -68,6 +68,8 @@ public class FloePhaseCC : MonoBehaviour
         Vector3 pos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         Vector3 targetVec = new Vector3(pos.x, pos.y, 0f) - gunPivot.transform.position;
         gunPivot.transform.right = targetVec;
+        
+        head.transform.right = new Vector3(Mathf.Clamp(targetVec.x, transform.position.x, 100f), Mathf.Clamp(targetVec.y, transform.position.y, 100f), targetVec.z);
 
         if (Input.GetMouseButton(0) && cooldownCounter < 0f)
         {

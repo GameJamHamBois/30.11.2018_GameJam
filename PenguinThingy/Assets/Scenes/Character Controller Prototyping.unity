@@ -855,6 +855,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1397798888417106, guid: af5a1fcb0031b1f4295084e99a18d8d5,
     type: 2}
   lowerBody: {fileID: 871223712}
+  head: {fileID: 1889319644}
   bulletSpawnPoint: {fileID: 54997784}
   bulletSounds:
   - {fileID: 8300000, guid: 484cdd17e4de01941af209234f3dca2f, type: 3}
@@ -1232,6 +1233,7 @@ MonoBehaviour:
   BirdPrefab:
   - {fileID: 1905583215763158, guid: 8078298d8950a3140bdd00a8ad8f09ec, type: 2}
   - {fileID: 1905583215763158, guid: ce86643420ec7aa4a84b02346954fb71, type: 2}
+  - {fileID: 1905583215763158, guid: 0cdf21b92e5b9ec40a1a26aa92492a30, type: 2}
   BirdSpawnrateInSec: 2.5
   maxBirdPosOffset: 3
   OrcaSpawnPoint: {fileID: 684790310}
@@ -1684,7 +1686,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1889319644}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.968, y: -0.82, z: 0}
+  m_LocalPosition: {x: -4.297, y: -0.953, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 806369044}
