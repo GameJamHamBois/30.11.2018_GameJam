@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50001662281202248}
   - component: {fileID: 114115096720184354}
   - component: {fileID: 61898009746739342}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Orca
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61898009746739342
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -101,7 +101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Body: {fileID: 50001662281202248}
   Force: {x: -7, y: 13}
-  ForceCollider: {fileID: 0}
 --- !u!212 &212171997384323546
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -134,8 +133,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1395560103
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aa9d151a2e7b1384b836727d77615582, type: 3}
   m_Color: {r: 0.4528302, g: 0.4207903, b: 0.4207903, a: 1}

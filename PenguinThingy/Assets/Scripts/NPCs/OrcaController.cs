@@ -13,6 +13,7 @@ public class OrcaController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log(collision.gameObject.tag + " " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("LaunchPad") && !alreadyLauched)
         {
             alreadyLauched = true;
@@ -20,12 +21,12 @@ public class OrcaController : MonoBehaviour {
         }
         else if(collision.gameObject.CompareTag("LaunchPad") && alreadyLauched)
         {
-            GameObject.Destroy(this.gameObject);
+            GameObject.Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Yoink");
-            GameObject.Destroy(this.gameObject);
+            GameObject.Destroy(gameObject);
         }
     }
 }

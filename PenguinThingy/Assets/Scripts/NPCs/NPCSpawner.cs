@@ -1,28 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class NPCSpawner : MonoBehaviour {
 
     public Transform BirdSpawnPoint;
     public GameObject BirdPrefab;
-    public int BirdSpawnrateInSec;
+    public float BirdSpawnrateInSec;
+    public float maxBirdPosOffset;
     private float timeCounterBird;
 
     public Transform OrcaSpawnPoint;
     public GameObject OrcaPrefab;
-    public int OrcaSpawnrateInSec;
+    public float OrcaSpawnrateInSec;
+    public float maxOrcaPosOffset;
     private float timeCounterOrca;
-    /// <summary>
-    /// bei erster Berührung wird Orca gelauncht,
-    /// bei Zweiter zerstört.
-    /// </summary>
-
-
-
-	void Start ()
-    {
-    }
 
 	void Update ()
     {
@@ -32,7 +25,8 @@ public class NPCSpawner : MonoBehaviour {
         if(timeCounterOrca >= OrcaSpawnrateInSec)
         {
             timeCounterOrca = 0;
-            GameObject Orca = GameObject.Instantiate(OrcaPrefab, OrcaSpawnPoint);
+            GameObject orca = GameObject.Instantiate(OrcaPrefab, OrcaSpawnPoint);
+            orca.transform.Translate(new Vector3(Random.Range(-maxOrcaPosOffset, maxOrcaPosOffset), 0f, 0f));
         }
 
 
@@ -40,7 +34,8 @@ public class NPCSpawner : MonoBehaviour {
         {
             timeCounterBird = 0;
 
-            GameObject.Instantiate(BirdPrefab, BirdSpawnPoint);
+            GameObject berd = GameObject.Instantiate(BirdPrefab, BirdSpawnPoint);
+            berd.transform.Translate(new Vector3(0f, Random.Range(-maxBirdPosOffset, maxBirdPosOffset), 0f));
         }
 
 	}

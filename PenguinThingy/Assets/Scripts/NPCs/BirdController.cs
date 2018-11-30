@@ -6,35 +6,33 @@ using UnityEngine;
 public class BirdController : MonoBehaviour {
 
     public Rigidbody2D Body;
-    public Vector2 Force;
-    /// <summary>
-    /// X Coordinate an der die Vögel sich selbst zerstören.
-    /// </summary>
+    public float speed;
     public int DestructionXPosition;
 
     private bool isHit = false;
 
 
-	void Start () {
-		
-	}
+	void Start ()
+    {
+        Body.velocity = new Vector2(-speed, Body.velocity.y);
+    }
 	
 	void Update ()
     {
-        isHit = Input.GetKeyDown(KeyCode.E);
 
-        if (!isHit)
-        {
-            Body.AddForce(Force,ForceMode2D.Force);
-        }
-        else
-        {
-            Body.constraints = RigidbodyConstraints2D.None;
-        }
-
-        if(transform.position.x <= DestructionXPosition)
+        if (transform.position.x <= DestructionXPosition)
         {
             GameObject.Destroy(this.gameObject);
         }
 	}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            Body.constraints = RigidbodyConstraints2D.None;
+            Body.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+    }
 }
