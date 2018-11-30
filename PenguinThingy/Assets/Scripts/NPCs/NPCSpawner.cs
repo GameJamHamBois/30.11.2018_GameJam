@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 public class NPCSpawner : MonoBehaviour {
 
     public Transform BirdSpawnPoint;
-    public GameObject BirdPrefab;
+    public GameObject[] BirdPrefab;
     public float BirdSpawnrateInSec;
     public float maxBirdPosOffset;
     private float timeCounterBird;
@@ -40,7 +40,7 @@ public class NPCSpawner : MonoBehaviour {
         {
             timeCounterBird = 0;
 
-            GameObject berd = GameObject.Instantiate(BirdPrefab, BirdSpawnPoint);
+            GameObject berd = GameObject.Instantiate(BirdPrefab[Random.Range(0, BirdPrefab.Length)], BirdSpawnPoint);
             berd.transform.Translate(new Vector3(0f, Random.Range(-maxBirdPosOffset, maxBirdPosOffset), 0f));
         }
 	}

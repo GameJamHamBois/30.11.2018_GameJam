@@ -966,11 +966,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1264327962}
@@ -1185,7 +1185,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BirdSpawnPoint: {fileID: 128633652}
-  BirdPrefab: {fileID: 1905583215763158, guid: 8078298d8950a3140bdd00a8ad8f09ec, type: 2}
+  BirdPrefab:
+  - {fileID: 1905583215763158, guid: 8078298d8950a3140bdd00a8ad8f09ec, type: 2}
+  - {fileID: 1905583215763158, guid: ce86643420ec7aa4a84b02346954fb71, type: 2}
   BirdSpawnrateInSec: 2.5
   maxBirdPosOffset: 3
   OrcaSpawnPoint: {fileID: 684790310}

@@ -37,8 +37,6 @@ public class GameManager : MonoBehaviour
             else break;
         }
         Application.Quit();
-
-        EditorApplication.isPlaying = false;
     }
 
     public static IEnumerator LightenScreen()
