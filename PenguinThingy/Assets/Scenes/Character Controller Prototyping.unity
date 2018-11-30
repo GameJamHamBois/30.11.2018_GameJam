@@ -214,6 +214,48 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!1001 &410449113
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 519420032}
+    m_Modifications:
+    - target: {fileID: 4293445175944388, guid: 9ea191c1848e6ce4d8e55738f7ae4df5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293445175944388, guid: 9ea191c1848e6ce4d8e55738f7ae4df5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293445175944388, guid: 9ea191c1848e6ce4d8e55738f7ae4df5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293445175944388, guid: 9ea191c1848e6ce4d8e55738f7ae4df5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293445175944388, guid: 9ea191c1848e6ce4d8e55738f7ae4df5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293445175944388, guid: 9ea191c1848e6ce4d8e55738f7ae4df5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293445175944388, guid: 9ea191c1848e6ce4d8e55738f7ae4df5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293445175944388, guid: 9ea191c1848e6ce4d8e55738f7ae4df5, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9ea191c1848e6ce4d8e55738f7ae4df5, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +349,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0}
+  m_BackGroundColor: {r: 0.49411768, g: 0.7058824, b: 0.8000001, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -350,6 +392,7 @@ Transform:
   m_Children:
   - {fileID: 348231942}
   - {fileID: 1777319403}
+  - {fileID: 2088906226}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1440,6 +1483,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &2088906226 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4293445175944388, guid: 9ea191c1848e6ce4d8e55738f7ae4df5,
+    type: 2}
+  m_PrefabInternal: {fileID: 410449113}
 --- !u!1 &2132984595
 GameObject:
   m_ObjectHideFlags: 0
