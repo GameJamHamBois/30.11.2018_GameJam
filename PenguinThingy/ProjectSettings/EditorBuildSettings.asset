@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Zwille.unity
     guid: 74522e3272172334693759557fa1e4b1
+  - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: 27e01eb476b93ba43b712ead880d766b
+  - enabled: 1
+    path: Assets/Scenes/CreditsScene.unity
+    guid: 7874a6d407e8b2043876ee0b1f8af6b1
   m_configObjects: {}
