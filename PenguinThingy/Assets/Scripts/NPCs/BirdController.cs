@@ -33,6 +33,7 @@ public class BirdController : MonoBehaviour {
             collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             Body.constraints = RigidbodyConstraints2D.None;
             Body.constraints = RigidbodyConstraints2D.FreezeRotation;
+
         }
     }
 }
