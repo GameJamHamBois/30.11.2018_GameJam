@@ -6,6 +6,7 @@ public class FloePhaseCC : MonoBehaviour
 {
     [SerializeField] private GameObject gunPivot, penguin, bulletPrefab;
     [SerializeField] private Transform bulletSpawnPoint;
+    [SerializeField] private AudioClip[] bulletSounds;
     [SerializeField] private float gunCD;
     [SerializeField] private float bulletDespawnTime;
     [SerializeField] private Rigidbody2D penguinRB;
@@ -55,6 +56,7 @@ public class FloePhaseCC : MonoBehaviour
         if (Input.GetMouseButton(0) && cooldownCounter < 0f)
         {
             cooldownCounter = gunCD;
+            GameManager.AudioSource.PlayOneShot(bulletSounds[Random.Range(0, bulletSounds.Length)]);
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
             bullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(targetVec.x, targetVec.y) * shotForceMod, ForceMode2D.Impulse);
             StartCoroutine(DestroyBulletWithDelay(bullet));
