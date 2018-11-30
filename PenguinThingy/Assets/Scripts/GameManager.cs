@@ -27,11 +27,12 @@ public class GameManager : MonoBehaviour
 
     public static IEnumerator DarkenScreen()
     {
+        FloePhaseCC.canAct = false;
         Vignette settings;
         vignetteMask.profile.TryGetSettings<Vignette>(out settings);
         while (true)
         {
-            settings.opacity.value += Time.deltaTime * .6f;
+            settings.opacity.value += Time.deltaTime * .3f;
             if (settings.opacity.value < 1f) yield return null;
             else break;
         }

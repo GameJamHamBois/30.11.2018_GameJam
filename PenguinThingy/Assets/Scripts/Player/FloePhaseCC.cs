@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FloePhaseCC : MonoBehaviour
 {
+    public static bool canAct = true;
+
     [SerializeField] private GameObject gunPivot, penguin, bulletPrefab, lowerBody;
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private AudioClip[] bulletSounds;
@@ -52,6 +54,7 @@ public class FloePhaseCC : MonoBehaviour
 
     private void Update()
     {
+        if (!canAct) return;
         HandleInput();
         CheckGround();
         transform.position = new Vector3(transform.position.x, transform.position.y + Mathf.Sin(Time.time) * bobbingMod, transform.position.z);
