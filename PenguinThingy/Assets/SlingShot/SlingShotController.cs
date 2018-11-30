@@ -10,6 +10,8 @@ public class SlingShotController : MonoBehaviour {
     float speedPerFrame = 0.0f;
     [SerializeField]
     float maxSpeed = 0.0f;
+    
+    public float birdAmount;
     bool increasing = true;
     [SerializeField]
     Transform target;
@@ -69,16 +71,21 @@ public class SlingShotController : MonoBehaviour {
         }  
         if(Input.GetButtonUp("Fire1"))
         {
-            direction = transform.position - target.position;
-            projectile = Instantiate(projectilePF, transform.position, transform.rotation);
+            if (birdAmount >= 0)
+            {
 
-            direction.Normalize();
-            
-            
-            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-            
-            rb.velocity = new Vector2(-direction.x * speed, -direction.y * speed);
-            speed = 0.0f;
+                direction = transform.position - target.position;
+                projectile = Instantiate(projectilePF, transform.position, transform.rotation);
+
+                direction.Normalize();
+
+
+                Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+
+                rb.velocity = new Vector2(-direction.x * speed, -direction.y * speed);
+                speed = 0.0f;
+                birdAmount--;
+            }
         } 	
 	}
 }
