@@ -26,8 +26,9 @@ public class SunController : MonoBehaviour {
 	void Update ()
     {
         currentTime += Time.deltaTime;
-        if(currentTime < TravelTime)
+        if (currentTime < TravelTime)
             Pivot.Rotate(0f, 0f, (anglePerSec * Time.deltaTime));
+        else StartCoroutine(GameManager.DarkenScreenNext());
 
 	}
 }

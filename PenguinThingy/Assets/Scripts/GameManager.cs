@@ -4,6 +4,7 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -37,6 +38,20 @@ public class GameManager : MonoBehaviour
             else break;
         }
         Application.Quit();
+    }
+
+    public static IEnumerator DarkenScreenNext()
+    {
+        FloePhaseCC.canAct = false;
+        Vignette settings;
+        vignetteMask.profile.TryGetSettings<Vignette>(out settings);
+        while (true)
+        {
+            settings.opacity.value += Time.deltaTime * .3f;
+            if (settings.opacity.value < 1f) yield return null;
+            else break;
+        }
+        SceneManager.LoadScene("Zwille");
     }
 
     public static IEnumerator LightenScreen()

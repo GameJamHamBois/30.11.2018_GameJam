@@ -32,8 +32,8 @@ public class SlingShotController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+		birdAmount = GameObject.FindGameObjectWithTag("BerdCollector").GetComponent<BerdCollector>().Berds;
+    }
 	
 	// Update is called once per frame
 	void Update () {
