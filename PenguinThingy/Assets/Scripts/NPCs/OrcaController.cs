@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent (typeof(Rigidbody2D))]
 public class OrcaController : MonoBehaviour {
 
+    public AudioClip PenguinHurt;
     public Rigidbody2D Body;
     public Vector2 Force;
 
@@ -25,7 +26,8 @@ public class OrcaController : MonoBehaviour {
         }
         else if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Yoink");
+            GameManager.AudioSource.PlayOneShot(PenguinHurt);
+            if (GameManager.Birds > 0) GameManager.Birds--;
             GameObject.Destroy(gameObject);
         }
     }

@@ -7,6 +7,7 @@ public class FloePhaseCC : MonoBehaviour
     [SerializeField] private GameObject gunPivot, penguin, bulletPrefab;
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private AudioClip[] bulletSounds;
+    [SerializeField] private AudioClip jumpSound;
     [SerializeField] private float gunCD;
     [SerializeField] private float bulletDespawnTime;
     [SerializeField] private Rigidbody2D penguinRB;
@@ -16,6 +17,7 @@ public class FloePhaseCC : MonoBehaviour
     [Header("Modifiers")]
     [SerializeField] private float shotForceMod;
     [SerializeField] private float jumpForceMod;
+    [SerializeField] private float bobbingMod;
     [SerializeField] private float movespeedMod;
     [SerializeField] private float minX;
     [SerializeField] private float maxX;
@@ -44,6 +46,7 @@ public class FloePhaseCC : MonoBehaviour
     {
         HandleInput();
         CheckGround();
+        transform.position = new Vector3(transform.position.x, transform.position.y + Mathf.Sin(Time.time) * bobbingMod, transform.position.z);
     }
 
 
@@ -72,13 +75,14 @@ public class FloePhaseCC : MonoBehaviour
 
     private void Jump()
     {
+        GameManager.AudioSource.PlayOneShot(jumpSound);
         grounded = false;
         penguinRB.AddForce(transform.up * jumpForceMod, ForceMode2D.Impulse);
     }
 
     private void CheckGround()
     {
-        RaycastHit2D hit = Physics2D.Raycast(penguin.transform.position, Vector3.up * -1, 1.1f, groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(penguin.transform.position, Vector3.up * -1, 1.4f, groundLayer);
         if (hit.transform != null) grounded = true;
         else grounded = false;
     }

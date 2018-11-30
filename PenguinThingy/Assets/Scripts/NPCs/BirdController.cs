@@ -35,13 +35,14 @@ public class BirdController : MonoBehaviour {
         {
             dead = true;
             GameManager.AudioSource.PlayOneShot(deathSounds[Random.Range(0, deathSounds.Length)]);
-            collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            collision.gameObject.SetActive(false);
             Body.constraints = RigidbodyConstraints2D.None;
             Body.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         }
         else if(collision.gameObject.CompareTag("Ice Floe"))
         {
+            GameManager.Birds++;
             Destroy(gameObject);
         }
     }
