@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class FloePhaseCC : MonoBehaviour
 {
-    [SerializeField] private GameObject gunPivot, penguin, bulletPrefab;
+    [SerializeField] private GameObject gunPivot, penguin, bulletPrefab, lowerBody;
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private AudioClip[] bulletSounds;
     [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip reloadSound;
+    [SerializeField] private Sprite jumpSprite;
+    [SerializeField] private Sprite normalSprite;
     [SerializeField] private float gunCD;
+    [SerializeField] private float reloadCD;
     [SerializeField] private float bulletDespawnTime;
     [SerializeField] private Rigidbody2D penguinRB;
     [SerializeField] private LayerMask groundLayer;
@@ -25,15 +29,19 @@ public class FloePhaseCC : MonoBehaviour
 
     private BoxCollider2D penguinBC;
     private Camera mainCam;
+    private SpriteRenderer lowerBodySpriteRenderer;
     private float cooldownCounter;
+    private float reloadCounter;
+    private bool reloadNeeded = false;
     private bool grounded;
 
     private void Start()
     {
         penguinBC = GetComponent<BoxCollider2D>();
         mainCam = Camera.main;
-
+        lowerBodySpriteRenderer = lowerBody.GetComponent<SpriteRenderer>();
         SetOrthSize();
+        reloadCounter = reloadCD;
     }
 
     private void SetOrthSize()
@@ -47,6 +55,8 @@ public class FloePhaseCC : MonoBehaviour
         HandleInput();
         CheckGround();
         transform.position = new Vector3(transform.position.x, transform.position.y + Mathf.Sin(Time.time) * bobbingMod, transform.position.z);
+        if (grounded) lowerBodySpriteRenderer.sprite = normalSprite;
+        else lowerBodySpriteRenderer.sprite = jumpSprite;
     }
 
 
@@ -58,13 +68,23 @@ public class FloePhaseCC : MonoBehaviour
 
         if (Input.GetMouseButton(0) && cooldownCounter < 0f)
         {
+            reloadCounter = reloadCD;
             cooldownCounter = gunCD;
             GameManager.AudioSource.PlayOneShot(bulletSounds[Random.Range(0, bulletSounds.Length)]);
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
             bullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(targetVec.x, targetVec.y) * shotForceMod, ForceMode2D.Impulse);
             StartCoroutine(DestroyBulletWithDelay(bullet));
+            reloadNeeded = true;
         }
         else cooldownCounter -= Time.deltaTime;
+        
+        if (reloadNeeded && reloadCounter < 0f)
+        {
+            GameManager.AudioSource.PlayOneShot(reloadSound);
+            reloadCounter = reloadCD;
+            reloadNeeded = false;
+        }
+        else if (reloadNeeded) reloadCounter -= Time.deltaTime;
 
         float hMovement = Input.GetAxis("Horizontal");
         transform.Translate(new Vector3(hMovement * movespeedMod, 0f, 0f));

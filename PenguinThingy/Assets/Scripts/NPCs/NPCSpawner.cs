@@ -17,11 +17,17 @@ public class NPCSpawner : MonoBehaviour {
     public float maxOrcaPosOffset;
     private float timeCounterOrca;
 
-	void Update ()
+    private void Start()
+    {
+        DontDestroyOnLoad(this);
+    }
+
+    void Update ()
     {
         timeCounterBird += Time.deltaTime;
         timeCounterOrca += Time.deltaTime;
 
+        if (OrcaSpawnPoint == null) return;
         if(timeCounterOrca >= OrcaSpawnrateInSec)
         {
             timeCounterOrca = 0;

@@ -14,7 +14,6 @@ public class OrcaController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.tag + " " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("LaunchPad") && !alreadyLauched)
         {
             alreadyLauched = true;
