@@ -6,6 +6,10 @@ public class OceanController : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player")) GameManager.InduceGameOver();
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(GameManager.DarkenScreen());
+            GameManager.InduceGameOver();
+        }
     }
 }

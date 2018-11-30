@@ -43,6 +43,5 @@ public class NPCSpawner : MonoBehaviour {
             GameObject berd = GameObject.Instantiate(BirdPrefab, BirdSpawnPoint);
             berd.transform.Translate(new Vector3(0f, Random.Range(-maxBirdPosOffset, maxBirdPosOffset), 0f));
         }
-
 	}
 }
