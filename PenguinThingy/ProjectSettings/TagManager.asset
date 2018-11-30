@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Ice Floe
   - VignetteMask
+  - BerdCollector
   layers:
   - Default
   - TransparentFX

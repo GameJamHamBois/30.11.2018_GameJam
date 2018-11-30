@@ -19,7 +19,7 @@ public class NPCSpawner : MonoBehaviour {
 
     private void Start()
     {
-        DontDestroyOnLoad(this);
+
     }
 
     void Update ()

@@ -22,7 +22,7 @@ public class CloudsController : MonoBehaviour {
 
         if(currentTime >= Spawnrate)
         {
-            GameObject cloud = GameObject.Instantiate(Clouds[Random.Range(0, Clouds.Length - 1)],SpawnPoint);
+            GameObject cloud = GameObject.Instantiate(Clouds[Random.Range(0, Clouds.Length)],SpawnPoint);
             cloud.transform.position = new Vector3(cloud.transform.position.x, Random.Range(cloud.transform.position.y, cloud.transform.position.y + 3));
             currentTime = 0;
             Spawnrate = Random.Range(Mathf.Max(0.5f,spawnrate - 1), Mathf.Max(1,spawnrate + 1));
