@@ -102,6 +102,7 @@ MonoBehaviour:
   deathSounds:
   - {fileID: 8300000, guid: 5ba892699a6728d4e8179eee24c4c594, type: 3}
   - {fileID: 8300000, guid: b19f13b11e5c4984780b4af1c5f9fd1b, type: 3}
+  reloadSounds: []
   Body: {fileID: 50222612341981786}
   speed: 7
   DestructionXPosition: -30
