@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
             if (settings.opacity.value < 1f) yield return null;
             else break;
         }
-        Application.Quit();
+        SceneManager.LoadScene("MenuScene");
     }
 
     public static IEnumerator DarkenScreenNext()

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SlingShotController : MonoBehaviour {
@@ -20,31 +22,58 @@ public class SlingShotController : MonoBehaviour {
     [SerializeField]
     Transform maxPosition;
     [SerializeField]
-    GameObject projectilePF;
+    GameObject[] projectilePF;
     GameObject projectile;
     bool shot = true;
     float sliderFill = 0f;
     [SerializeField]
     Slider slider;
+    [SerializeField]
+    Text endScore;
+    [SerializeField]
+    GameObject endScoreScreen;
+
+    [SerializeField]
+    score scorethingy;
+
+    private TextMeshPro counter;
+
+    private bool alreadyWon = false;
     
 
     Vector3 direction;
 
     // Use this for initialization
     void Start () {
+
 		birdAmount = GameObject.FindGameObjectWithTag("BerdCollector").GetComponent<BerdCollector>().Berds;
+        counter = GameObject.FindGameObjectWithTag("Counter").GetComponent<TextMeshPro>();
+
+        counter.text = birdAmount.ToString();
+    }
+
+    IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("MenuScene");
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButton("Fire1"))
+        if(birdAmount == 0 || scorethingy.eggAmount == 0)
         {
+            alreadyWon = true;
+            endScoreScreen.SetActive(true);
+            endScore.text = scorethingy.PointsTE.text;
+            StartCoroutine(Restart());
+        }
 
-
+        if (Input.GetButton("Fire1") && !alreadyWon)
+        {
             // setting up Projectile + getting direction
             if (shot)
             {
-                projectile = Instantiate(projectilePF,birdSpawn.position,birdSpawn.rotation,birdSpawn);
+                projectile = Instantiate(projectilePF[Random.Range(0,projectilePF.Length)],birdSpawn.position,birdSpawn.rotation,birdSpawn);
 
                 shot = false;
             }
@@ -76,7 +105,7 @@ public class SlingShotController : MonoBehaviour {
 
 
         }  
-        if(Input.GetButtonUp("Fire1"))
+        if(Input.GetButtonUp("Fire1") && !alreadyWon)
         {
             if (birdAmount > 0)
             {
@@ -93,7 +122,10 @@ public class SlingShotController : MonoBehaviour {
                 speed = 0.0f;
                 birdAmount--;
                 shot = true;
+
+                counter.text = birdAmount.ToString();
             }
+
         } 	
 	}
 }

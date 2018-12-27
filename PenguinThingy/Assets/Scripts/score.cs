@@ -4,11 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class score : MonoBehaviour {
-    [SerializeField]
-    int eggAmount = 10;
+
+    public int eggAmount = 10;
     int points = 0;
-    [SerializeField]
-    Text PointsTE;
+    public Text PointsTE;
     [SerializeField]
     SlingShotController ssc;
 	// Use this for initialization

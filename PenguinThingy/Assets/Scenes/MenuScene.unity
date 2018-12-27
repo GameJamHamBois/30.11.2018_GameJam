@@ -968,7 +968,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pumpgun Peguin
+  m_Text: Pumpgun Penguin
 --- !u!222 &1447181036
 CanvasRenderer:
   m_ObjectHideFlags: 0

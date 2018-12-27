@@ -9,6 +9,10 @@ TagManager:
   - Ice Floe
   - VignetteMask
   - BerdCollector
+  - BossStage
+  - SlingShot
+  - Score
+  - Counter
   layers:
   - Default
   - TransparentFX
